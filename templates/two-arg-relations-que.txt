@@ -1,0 +1,5 @@
+1 The hallway is east of the bathroom.The bedroom is west of the bathroom.    What is the bathroom east of
+2 The kitchen is south of the office.The garden is south of the kitchen.      What is south of the office
+3 The bathroom is north of the office.The office is north of the garden.      What is north of the office
+4 The bedroom is east of the kitchen.The bathroom is west of the kitchen.     What is the kitchen west of
+5 The kitchen is south of the bathroom.The bathroom is south of the bedroom.  What is south of the bathroom

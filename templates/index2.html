@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QAS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:700|Varela+Round&display=swap" rel="stylesheet">
+
+    <style>
+        #heading {
+            font-size: 3.0rem;
+            font-weight: bolder;
+            line-height: 1.5;
+            padding-top: 4%;
+            color: #FF5733;
+            font-family: 'Cabin Sketch', cursive;
+        }
+
+        #details {
+            background-image: linear-gradient(to bottom right, #28282B, #52525c);
+
+        }
+
+        #story {
+            color: #717172;
+        }
+
+        .main {
+            margin: 0% 10% 5% 5%;
+        }
+
+        .big-heading {
+            color: #cadae2;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            line-height: 1.9;
+            padding: 8% 10% 15%;
+        }
+
+        .start-button {
+            margin-top: 30%;
+            margin-right: 35%;
+            color: #dfccc8;
+            width: 200px;
+            border-color: #FF5733;
+        }
+
+        body {
+            background-color: #e5ecf0;
+            width: 100%;
+        }
+
+        .title {
+            font-family: 'Cabin Sketch', cursive;
+            color: #fa3103;
+            font-size: 1.5rem;
+        }
+
+        .wt {
+            background-color: white;
+            border-style: inherit;
+            border-radius: 4%;
+            color: #383838;
+        }
+
+        .bw {
+            background-color: #f88064;
+        }
+
+        .special {
+            background-color: #52525c;
+            color: #e5ecf0;
+        }
+
+        @media (max-width: 990px) {
+
+            .start-button {
+                position: static;
+                margin-top: 0;
+                margin-right: 0;
+                margin-bottom: 8%;
+            }
+
+            #heading {
+                font-size: 2.0rem;
+            }
+
+            .big-heading {
+                padding-bottom: 5%;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="details">
+        <center>
+            <div id="heading"> Question Answering System </div>
+        </center>
+        <div class="row">
+            <div class="col-lg-8">
+                <h1 class="big-heading">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Maxime mollitia,molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+                    Maxime mollitia,molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum</h1>
+            </div>
+
+            <div class="col-lg-4">
+                <center><a href="#A"><button type="button" class="btn btn-outline-light btn-lg start-button">
+                            <b>Start</b>
+                        </button></a>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <a name="A">
+        <div class="main">
+
+            <form action="{{ url_for('predict')}}" method="post">
+                <div class="title">Story:</div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <select name="story" id="story" class="wt form-select" aria-label="Default select example">
+                            <option selected>Select a Story.</option>
+                            <option value="The hallway is east of the bathroom.The bedroom is west of the bathroom.">
+                                The hallway is east of the bathroom.The bedroom is west of the bathroom.
+                            </option>
+                            <option value="The kitchen is south of the office.The garden is south of the kitchen.">
+                                The kitchen is south of the office.The garden is south of the kitchen.
+                            </option>
+                            <option value="The bathroom is north of the office.The office is north of the garden.">
+                                The bathroom is north of the office.The office is north of the garden.
+                            </option>
+                            <option value="The bedroom is east of the kitchen.The bathroom is west of the kitchen.">
+                                The bedroom is east of the kitchen.The bathroom is west of the kitchen.
+                            </option>
+                            <option value="The kitchen is south of the bathroom.The bathroom is south of the bedroom.">
+                                The kitchen is south of the bathroom.The bathroom is south of the bedroom.
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+
+                <div class="title">Question:</div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="input-group mb-3" id="wt">
+                            <div class="input-group-prepend">
+                                <button onClick="questions()" class="special btn btn-outline-secondary dropdown-toggle"
+                                    type="button" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">Choose a
+                                    Question</button>
+                                <div class="dropdown-menu" id="question_list">
+                                </div>
+                            </div>
+                            <input name="question" type="text" id="val" class="wt form-control"
+                                placeholder="or type a question...">
+                            <button class="special btn btn-outline-secondary" type="submit">Predict</button>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+                <div class="title">Answer:</div>
+                <br>
+                <textarea class="wt" id="answer" name="w3review" rows="4" cols="50">{{ prediction_text }}</textarea>
+                <br>
+                <br>
+
+                <center>
+                    <button type="button" class="special btn btn-outline-secondary  "
+                        onClick="window.location.reload();">Ask New
+                        Question</button>
+                </center>
+            </form>
+        </div>
+    </a>
+
+    <script>
+        var e = document.querySelectorAll('option')
+        e.forEach(x => {
+            if (x.textContent.length > 200)
+                x.textContent = x.textContent.substring(0, 200) + '...';
+        })
+        var story;
+
+        function fun(value) {
+            document.querySelector('#val').value = value;
+            story = value;
+        }
+
+        function questions() {
+            let selected_story = document.getElementById("story").value
+            let question_list = document.getElementById("question_list")
+            while (question_list.firstChild) {
+                question_list.removeChild(question_list.firstChild);
+            }
+            var tag;
+            var att;
+            var optionHtml;
+
+            if (selected_story == "The hallway is east of the bathroom.The bedroom is west of the bathroom.") {
+                tag = document.createElement("div");
+                att = document.createAttribute("class");
+                att.value = "dropdown-item"
+                tag.setAttributeNode(att)
+                att = document.createAttribute("onClick");
+                att.value = "fun('What is the bathroom east of')"
+                tag.setAttributeNode(att)
+
+                optionHtml = document.createTextNode("What is the bathroom east of")
+                tag.appendChild(optionHtml)
+
+                question_list.appendChild(tag);
+            }
+
+            if (selected_story == "The kitchen is south of the office.The garden is south of the kitchen.") {
+                tag = document.createElement("div");
+                att = document.createAttribute("class");
+                att.value = "dropdown-item"
+                tag.setAttributeNode(att)
+                att = document.createAttribute("onClick");
+                att.value = "fun('What is south of the office')"
+                tag.setAttributeNode(att)
+
+                optionHtml = document.createTextNode("What is south of the office")
+                tag.appendChild(optionHtml)
+
+                question_list.appendChild(tag);
+
+            }
+
+            if (selected_story == "The bathroom is north of the office.The office is north of the garden.") {
+                tag = document.createElement("div");
+                att = document.createAttribute("class");
+                att.value = "dropdown-item"
+                tag.setAttributeNode(att)
+                att = document.createAttribute("onClick");
+                att.value = "fun('What is north of the office')"
+                tag.setAttributeNode(att)
+
+                optionHtml = document.createTextNode("What is north of the office")
+                tag.appendChild(optionHtml)
+
+                question_list.appendChild(tag);
+            }
+
+            if (selected_story == "The bedroom is east of the kitchen.The bathroom is west of the kitchen.") {
+                tag = document.createElement("div");
+                att = document.createAttribute("class");
+                att.value = "dropdown-item"
+                tag.setAttributeNode(att)
+                att = document.createAttribute("onClick");
+                att.value = "fun('What is the kitchen west of')"
+                tag.setAttributeNode(att)
+
+                optionHtml = document.createTextNode("What is the kitchen west of")
+                tag.appendChild(optionHtml)
+
+                question_list.appendChild(tag);
+
+            }
+
+            if (selected_story == "The kitchen is south of the bathroom.The bathroom is south of the bedroom.") {
+                tag = document.createElement("div");
+                att = document.createAttribute("class");
+                att.value = "dropdown-item"
+                tag.setAttributeNode(att)
+                att = document.createAttribute("onClick");
+                att.value = "fun('What is south of the bathroom')"
+                tag.setAttributeNode(att)
+
+                optionHtml = document.createTextNode("What is south of the bathroom")
+                tag.appendChild(optionHtml)
+
+                question_list.appendChild(tag);
+
+            }
+
+
+        }
+    </script>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>

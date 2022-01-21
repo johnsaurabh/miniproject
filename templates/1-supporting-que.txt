@@ -1,0 +1,6 @@
+1 John travelled to the hallway.Mary journeyed to the bathroom.    Where is John        Where is Mary    
+2 John went to the hallway.Sandra journeyed to the kitchen.        Where is Sandra	Where is John
+3 Sandra travelled to the hallway.John went to the garden.         Where is Sandra	Where is Sandra
+4 Mary went to the bathroom.Sandra moved to the garden.            Where is Sandra      Where is Mary 
+5 Sandra travelled to the office.Daniel journeyed to the hallway.  Where is Daniel      Where is Sandra
+6 Daniel moved to the office.Mary went to the garden.              Where is Daniel      Where is Mary

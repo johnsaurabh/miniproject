@@ -1,0 +1,25 @@
+1 John travelled to the hallway.Mary journeyed to the bathroom.    Where is John        Where is Mary    
+2 John went to the hallway.Sandra journeyed to the kitchen.        Where is Sandra	Where is John
+3 Sandra travelled to the hallway.John went to the garden.         Where is Sandra	Where is Sandra
+
+
+2  supporting facts
+1 Mary got the milk there.John moved to the bedroom.Sandra went back to the kitchen.Mary travelled to the hallway.    Where is the milk
+
+2 Mary picked up the apple there.Mary dropped the apple.Daniel went back to the garden.Mary journeyed to the office.John got the football there.Mary went back to the kitchen.Daniel picked up the milk there.John travelled to the bedroom.
+         Where is the football?
+
+
+2 arg relations
+
+1 The hallway is east of the bathroom.The bedroom is west of the bathroom.      What is the bathroom east of
+
+
+yes-no
+
+Mary went to the office.Daniel picked up the football there.  Is Mary in the office? 	yes	
+
+
+time-reasoning
+
+1 This morning Mary moved to the kitchen.This afternoon Mary moved to the cinema.Yesterday Bill went to the bedroom.Yesterday Mary journeyed to the school.  Where was Mary before the cinema? 	kitchen
